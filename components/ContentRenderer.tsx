@@ -101,23 +101,18 @@ export const AboutSection = () => {
               </h1>
             </div>
 
-            <div className="flex items-center gap-4 pt-4">
-              <div className="h-[1px] w-12 bg-zinc-700" />
-              <p className="text-zinc-500 text-[10px] md:text-xs font-mono uppercase tracking-[0.5em] font-bold">
-                PROTOCOL VERIFIED // GOBINATH
-              </p>
-            </div>
+
           </div>
 
           <div className="space-y-4 md:space-y-5 max-w-xl">
             <div className="relative border-l-2 border-cyan-500/30 pl-4 md:pl-6">
               <p className="text-zinc-300 text-lg leading-relaxed font-light italic">
-                "I build <strong className="text-white font-bold">social consumer products</strong> powered by <strong className="text-cyan-400 font-bold">automated AI workflows</strong>. My work exists at the intersection of bioprocess, tissue engineering, drug delivery and high-performance automation."
+                "<strong className="text-white font-bold">Biotech research</strong>, <strong className="text-white font-bold">social consumer products</strong> and <strong className="text-cyan-400 font-bold">automated AI workflows</strong>. My past work exists at the intersection of bioprocess, tissue engineering, drug delivery, and 3D bioprinting."
               </p>
             </div>
 
             <p className="text-zinc-400 text-base leading-relaxed font-light pl-4 md:pl-6">
-              Currently scaling consumer products into seamless experiences for nightlife and a hiring platform. I am open to <span className="text-zinc-300 font-normal">human health research</span> focusing on <span className="text-cyan-400/80">longevity</span>, <span className="text-blue-400/80">cardiovascular diseases</span>, and <span className="text-emerald-400/80">tissue engineering</span>.
+              I am open to <span className="text-zinc-300 font-normal">human health research</span> focusing on <span className="text-cyan-400/80">longevity</span>, <span className="text-blue-400/80">cardiovascular diseases</span>, <span className="text-emerald-400/80">tissue engineering</span>, and <span className="text-violet-400/80">AI foundational model training</span>.
             </p>
           </div>
 

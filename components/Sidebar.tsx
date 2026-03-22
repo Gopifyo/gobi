@@ -58,7 +58,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onReset,
         {/* Navigation / History */}
         <div className="flex-1 overflow-y-auto px-3 py-2 scrollbar-none">
           <div className="mb-4 space-y-1">
-            <div className="px-5 py-2 text-xs font-mono font-bold text-zinc-600 uppercase tracking-widest">Interface Logs</div>
+            <div className="px-5 py-2 text-xs font-mono font-bold text-zinc-600 uppercase tracking-widest">Recent Activity</div>
 
             <NavButton active={activeSection === 'About'} icon={<User size={18} />} label="Who is Gobinath?" onClick={() => onNavigate('About')} />
             <NavButton active={activeSection === 'Experience'} icon={<Briefcase size={18} />} label="Where has he worked?" onClick={() => onNavigate('Experience')} />

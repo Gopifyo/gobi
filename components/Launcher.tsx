@@ -51,13 +51,16 @@ const Launcher: React.FC<LauncherProps> = ({
                 >
                     <div className="text-center space-y-6 md:space-y-8">
                         <h2 className="text-3xl sm:text-5xl md:text-7xl font-light tracking-tighter leading-[1.05] text-white drop-shadow-2xl px-2 max-w-4xl mx-auto">
-                            <DecryptedText text="Intelligence bridge between" /><br />
+                            <DecryptedText text="Building " />
                             <span className="italic font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-green-400 pr-2">biotech</span>
-                            <span className="text-zinc-600 font-thin">and</span><br className="md:hidden" />
+                            <span className="text-zinc-500">,</span><br className="md:hidden" />
                             <span className="italic font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-200 px-2">social consumer products</span>
-                            <span className="text-zinc-500">,</span><br />
+                            <span className="text-zinc-500">, and</span><br />
                             <span className="italic font-black text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 via-zinc-200 to-zinc-400 tracking-tighter">
-                                <DecryptedText text="AI automation." delay={1000} />
+                                <DecryptedText text="automated AI workflows" delay={1000} />
+                            </span><br />
+                            <span className="text-xl sm:text-2xl md:text-4xl text-zinc-400 font-thin mt-4 block">
+                                <DecryptedText text="— connecting wet lab science and software." delay={1500} />
                             </span>
                         </h2>
 
