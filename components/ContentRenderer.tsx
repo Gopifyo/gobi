@@ -491,7 +491,7 @@ export const MediaSection = () => (
 
 export const ContactSection = () => (
   <div className="mt-10 p-8 md:p-16 glass-panel rounded-[2rem] md:rounded-[3rem] border border-neutral-200 text-center animate-in fade-in slide-in-from-bottom-6 duration-700 shadow-2xl bg-gradient-to-br from-white/5 to-transparent">
-    <h3 className="text-3xl md:text-4xl font-black text-neutral-900 mb-6 uppercase tracking-tight">Direct Synchronization</h3>
+    <h3 className="text-3xl md:text-4xl font-black text-neutral-900 mb-6 uppercase tracking-tight">Get in Touch</h3>
     <p className="text-neutral-600 mb-12 text-xl font-light max-w-xl mx-auto leading-relaxed">The best way to reach out for high-impact collaborations, product ventures, or deep-tech research.</p>
     <div className="flex flex-col md:flex-row justify-center gap-6">
       <a href={`mailto:${SOCIAL_LINKS.email}`} className="flex-1 px-8 py-5 bg-neutral-900 text-white hover:bg-neutral-800 rounded-[1.5rem] text-lg font-black transition-all shadow-xl hover:scale-105 active:scale-95 uppercase tracking-widest flex items-center justify-center gap-3">
