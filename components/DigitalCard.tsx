@@ -74,7 +74,7 @@ export const DigitalCard = () => {
 
             {/* Theme Selector UI */}
             <div className="flex flex-col items-center gap-4 w-full">
-                <p className="text-[10px] font-mono tracking-[0.4em] text-zinc-500 uppercase">Personalize your token</p>
+                <p className="text-[10px] font-mono tracking-[0.4em] text-neutral-500 uppercase">Personalize your token</p>
                 <div className="relative group w-full max-w-xs transition-all">
                     <select
                         value={activeTheme.id}
@@ -82,19 +82,19 @@ export const DigitalCard = () => {
                             const theme = CARD_THEMES.find(t => t.id === e.target.value);
                             if (theme) setActiveTheme(theme);
                         }}
-                        className="w-full appearance-none bg-zinc-900 border border-white/5 rounded-2xl px-6 py-4 text-xs font-mono text-zinc-100 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 transition-all cursor-pointer hover:bg-zinc-800 uppercase tracking-widest shadow-xl"
+                        className="w-full appearance-none bg-neutral-900 border border-white/5 rounded-2xl px-6 py-4 text-xs font-mono text-neutral-100 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 transition-all cursor-pointer hover:bg-neutral-800 uppercase tracking-widest shadow-xl"
                     >
                         {CARD_THEMES.map(theme => (
-                            <option key={theme.id} value={theme.id} className="bg-zinc-900 text-zinc-400 py-4">
+                            <option key={theme.id} value={theme.id} className="bg-neutral-900 text-neutral-400 py-4">
                                 {theme.name}
                             </option>
                         ))}
                     </select>
-                    <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-500 group-hover:text-cyan-400 transition-colors">
+                    <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-500 group-hover:text-cyan-400 transition-colors">
                         <Rocket size={14} className="animate-pulse" />
                     </div>
                 </div>
-                <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-wider italic">
+                <p className="text-[9px] font-mono text-neutral-600 uppercase tracking-wider italic">
                     Current: {activeTheme.description}
                 </p>
             </div>
@@ -116,31 +116,31 @@ export const DigitalCard = () => {
             <div className="flex flex-wrap items-center justify-center gap-4 w-full">
                 <button
                     onClick={() => setIsFlipped(!isFlipped)}
-                    className="flex items-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-zinc-800 text-white rounded-full text-xs font-mono uppercase tracking-widest border border-white/10 transition-all hover:scale-105 active:scale-95 shadow-lg group"
+                    className="flex items-center gap-2 px-6 py-3 bg-neutral-900 hover:bg-neutral-800 text-white rounded-full text-xs font-mono uppercase tracking-widest border border-white/10 transition-all hover:scale-105 active:scale-95 shadow-lg group"
                 >
-                    <Repeat size={16} className="text-zinc-600 group-hover:rotate-180 transition-transform duration-500" />
+                    <Repeat size={16} className="text-neutral-600 group-hover:rotate-180 transition-transform duration-500" />
                     Flip Card
                 </button>
 
-                <div className="w-px h-8 bg-zinc-800 hidden md:block" />
+                <div className="w-px h-8 bg-neutral-800 hidden md:block" />
 
                 <button
                     onClick={() => downloadImage('png')}
-                    className="flex items-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-zinc-800 text-white rounded-full text-xs font-mono uppercase tracking-widest border border-white/10 transition-all hover:scale-105 active:scale-95 shadow-lg"
+                    className="flex items-center gap-2 px-6 py-3 bg-neutral-900 hover:bg-neutral-800 text-white rounded-full text-xs font-mono uppercase tracking-widest border border-white/10 transition-all hover:scale-105 active:scale-95 shadow-lg"
                 >
                     <Download size={16} className="text-cyan-500" />
                     Save Image
                 </button>
                 <button
                     onClick={downloadPDF}
-                    className="flex items-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-zinc-800 text-white rounded-full text-xs font-mono uppercase tracking-widest border border-white/10 transition-all hover:scale-105 active:scale-95 shadow-lg"
+                    className="flex items-center gap-2 px-6 py-3 bg-neutral-900 hover:bg-neutral-800 text-white rounded-full text-xs font-mono uppercase tracking-widest border border-white/10 transition-all hover:scale-105 active:scale-95 shadow-lg"
                 >
                     <FileDown size={16} className="text-amber-500" />
                     Save PDF
                 </button>
             </div>
 
-            <p className="text-zinc-500 text-[10px] uppercase tracking-widest font-mono text-center max-w-sm">
+            <p className="text-neutral-500 text-[10px] uppercase tracking-widest font-mono text-center max-w-sm">
                 Viewing {isFlipped ? 'Back Side' : 'Front Side'} // {activeTheme.name}
             </p>
         </div>

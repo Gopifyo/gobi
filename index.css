@@ -16,7 +16,7 @@
     }
 
     body {
-        @apply font-sans text-zinc-900 antialiased;
+        @apply font-sans text-neutral-900 antialiased;
         background-color: #fafafa;
     }
 
@@ -27,18 +27,18 @@
 
 @layer components {
     .glass-panel {
-        @apply bg-white/80 backdrop-blur-[60px] border border-zinc-200/50;
-        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+        @apply bg-white/80 backdrop-blur-[60px] border border-neutral-200/50;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
     }
 
     .glass-card {
-        @apply bg-white/60 backdrop-blur-[30px] border border-zinc-200/50 transition-all;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+        @apply bg-white/60 backdrop-blur-[30px] border border-neutral-200/50 transition-all;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
     }
 
     .glass-card:hover {
-        @apply bg-white/90 border-zinc-300;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+        @apply bg-white/90 border-neutral-300;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
     }
 }
 

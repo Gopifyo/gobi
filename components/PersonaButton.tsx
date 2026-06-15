@@ -33,13 +33,13 @@ const PersonaButton: React.FC<PersonaButtonProps> = ({ icon, label, onClick, sel
 
         <div className={`
       relative z-10 p-2.5 md:p-3.5 rounded-xl md:rounded-2xl transition-all duration-300
-      ${selected ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/20' : 'bg-white/5 text-zinc-400 group-hover:text-white'}
+      ${selected ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/20' : 'bg-white/5 text-neutral-400 group-hover:text-white'}
     `}>
             {icon}
         </div>
         <span className={`
       relative z-10 text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] transition-colors
-      ${selected ? 'text-amber-300 font-bold' : 'text-zinc-600 group-hover:text-zinc-300'}
+      ${selected ? 'text-amber-300 font-bold' : 'text-neutral-600 group-hover:text-neutral-300'}
     `}>
             {label}
         </span>

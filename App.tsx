@@ -45,11 +45,11 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] text-zinc-900 font-sans selection:bg-zinc-200/50 pb-32">
+    <div className="min-h-screen bg-[#fafafa] text-neutral-900 font-sans selection:bg-neutral-200/50 pb-32">
       
       {/* Unique Floating Navigation Pill */}
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
-        <div className="glass-panel rounded-full p-2 flex items-center gap-1 md:gap-2 shadow-2xl border border-zinc-200/50 bg-white/80 backdrop-blur-xl">
+        <div className="glass-panel rounded-full p-2 flex items-center gap-1 md:gap-2 shadow-2xl border border-neutral-200/50 bg-white/80 backdrop-blur-xl">
           {sections.map((section) => {
             const isActive = activeSection === section.id;
             return (
@@ -58,18 +58,18 @@ const App: React.FC = () => {
                 onClick={() => scrollTo(section.id)}
                 className={`
                   relative px-4 py-2.5 rounded-full text-xs md:text-sm font-mono tracking-widest uppercase transition-all duration-500 overflow-hidden group
-                  ${isActive ? 'text-white' : 'text-zinc-400 hover:text-zinc-900 hover:bg-zinc-100'}
+                  ${isActive ? 'text-white' : 'text-neutral-400 hover:text-neutral-900 hover:bg-neutral-100'}
                 `}
               >
                 {isActive && (
                   <motion.div
                     layoutId="active-pill"
-                    className="absolute inset-0 bg-zinc-900 rounded-full"
+                    className="absolute inset-0 bg-neutral-900 rounded-full"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
                 <span className="relative z-10 flex items-center gap-2">
-                  <span className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${isActive ? 'bg-white shadow-[0_0_8px_white]' : 'bg-zinc-300 group-hover:bg-zinc-400'}`} />
+                  <span className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${isActive ? 'bg-white shadow-[0_0_8px_white]' : 'bg-neutral-300 group-hover:bg-neutral-400'}`} />
                   <span className={`transition-all duration-300 ${isActive ? 'w-auto opacity-100 ml-1' : 'w-0 opacity-0 md:w-auto md:opacity-100 md:ml-1 hidden md:block'}`}>
                     {section.label}
                   </span>
@@ -140,7 +140,7 @@ const App: React.FC = () => {
         </section>
 
         {/* Section: Contact */}
-        <section id="contact" className="scroll-mt-32 pt-20 border-t border-zinc-200">
+        <section id="contact" className="scroll-mt-32 pt-20 border-t border-neutral-200">
           <ContactSection />
         </section>
 
@@ -152,10 +152,10 @@ const App: React.FC = () => {
 const SectionHeader = ({ title, subtitle }: { title: string, subtitle: string }) => (
   <div className="mb-16">
     <div className="flex items-center gap-6 mb-4">
-      <div className="w-12 h-[1px] bg-zinc-300"></div>
-      <h2 className="text-sm font-mono tracking-[0.3em] uppercase text-zinc-500">{subtitle}</h2>
+      <div className="w-12 h-[1px] bg-neutral-300"></div>
+      <h2 className="text-sm font-mono tracking-[0.3em] uppercase text-neutral-500">{subtitle}</h2>
     </div>
-    <h3 className="text-4xl md:text-5xl font-black tracking-tight text-zinc-900">{title}</h3>
+    <h3 className="text-4xl md:text-5xl font-black tracking-tight text-neutral-900">{title}</h3>
   </div>
 );
 
