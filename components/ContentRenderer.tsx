@@ -489,21 +489,71 @@ export const MediaSection = () => (
 );
 
 export const ContactSection = () => (
-  <div className="mt-10 p-8 md:p-16 glass-panel rounded-[2rem] md:rounded-[3rem] border border-neutral-200 text-center animate-in fade-in slide-in-from-bottom-6 duration-700 shadow-2xl bg-gradient-to-br from-white/5 to-transparent">
-    <h3 className="text-3xl md:text-4xl font-black text-neutral-900 mb-6 uppercase tracking-tight">Get in Touch</h3>
-    <p className="text-neutral-600 mb-12 text-xl font-light max-w-xl mx-auto leading-relaxed">The best way to reach out for high-impact collaborations, product ventures, or deep-tech research.</p>
-    <div className="flex flex-col md:flex-row justify-center gap-6">
-      <a href={`mailto:${SOCIAL_LINKS.email}`} className="flex-1 px-8 py-5 bg-neutral-900 text-white hover:bg-neutral-800 rounded-[1.5rem] text-lg font-black transition-all shadow-xl hover:scale-105 active:scale-95 uppercase tracking-widest flex items-center justify-center gap-3">
-        <Mail size={22} /> Email Protocol
-      </a>
-      <a href={`https://${SOCIAL_LINKS.linkedin}`} target="_blank" className="flex-1 px-8 py-5 bg-[#0077b5] hover:bg-[#00a0dc] text-neutral-900 rounded-[1.5rem] text-lg font-black transition-all shadow-xl hover:scale-105 active:scale-95 uppercase tracking-widest flex items-center justify-center gap-3">
-        <Linkedin size={22} /> LinkedIn Sync
-      </a>
-      <a href={`https://${SOCIAL_LINKS.github}`} target="_blank" className="flex-1 px-8 py-5 bg-neutral-100 border border-neutral-300 hover:bg-white/20 text-neutral-900 rounded-[1.5rem] text-lg font-black transition-all flex items-center justify-center gap-4 hover:border-white/40 uppercase tracking-widest backdrop-blur-md">
-        <Github size={22} /> Access Git
-      </a>
+  <div className="mt-10 bg-neutral-950 rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 border border-neutral-800 text-left animate-in fade-in slide-in-from-bottom-6 duration-700 shadow-2xl relative overflow-hidden group">
+    
+    {/* Abstract Background Element */}
+    <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-gradient-to-bl from-neutral-800/40 to-transparent rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3 group-hover:from-neutral-700/40 transition-colors duration-1000"></div>
+
+    <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-end">
+      
+      {/* Left Side: Status & Headline */}
+      <div className="space-y-8">
+        <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-neutral-800 bg-neutral-900/50 backdrop-blur-md">
+          <div className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+          </div>
+          <span className="text-xs font-mono text-neutral-300 uppercase tracking-widest">Accepting New Opportunities</span>
+        </div>
+        
+        <div>
+          <h3 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none mb-6">Let's build<br />something.</h3>
+          <p className="text-neutral-400 text-lg md:text-xl font-light max-w-md">Currently exploring high-impact collaborations, product ventures, and deep-tech research.</p>
+        </div>
+      </div>
+
+      {/* Right Side: Links */}
+      <div className="flex flex-col gap-4 w-full max-w-sm ml-auto">
+        <a href={`mailto:${SOCIAL_LINKS.email}`} className="group/link flex items-center justify-between p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-white group-hover/link:bg-white group-hover/link:text-neutral-900 transition-colors">
+              <Mail size={20} />
+            </div>
+            <div>
+              <div className="text-sm font-mono text-neutral-500 mb-1 uppercase tracking-widest">Email</div>
+              <div className="text-white font-medium tracking-wide">Direct Inbox</div>
+            </div>
+          </div>
+          <ArrowUpRight size={24} className="text-neutral-600 group-hover/link:text-white transition-colors group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
+        </a>
+
+        <a href={`https://${SOCIAL_LINKS.linkedin}`} target="_blank" className="group/link flex items-center justify-between p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-white group-hover/link:bg-[#0077b5] group-hover/link:text-white transition-colors">
+              <Linkedin size={20} />
+            </div>
+            <div>
+              <div className="text-sm font-mono text-neutral-500 mb-1 uppercase tracking-widest">Network</div>
+              <div className="text-white font-medium tracking-wide">LinkedIn</div>
+            </div>
+          </div>
+          <ArrowUpRight size={24} className="text-neutral-600 group-hover/link:text-white transition-colors group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
+        </a>
+
+        <a href={`https://${SOCIAL_LINKS.github}`} target="_blank" className="group/link flex items-center justify-between p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-white group-hover/link:bg-white group-hover/link:text-neutral-900 transition-colors">
+              <Github size={20} />
+            </div>
+            <div>
+              <div className="text-sm font-mono text-neutral-500 mb-1 uppercase tracking-widest">Code</div>
+              <div className="text-white font-medium tracking-wide">GitHub Vault</div>
+            </div>
+          </div>
+          <ArrowUpRight size={24} className="text-neutral-600 group-hover/link:text-white transition-colors group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
+        </a>
+      </div>
+
     </div>
-
-
   </div>
 );
