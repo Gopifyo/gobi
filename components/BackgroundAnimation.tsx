@@ -123,7 +123,7 @@ const DNAStrand = () => {
 
 const BackgroundAnimation: React.FC = () => {
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 opacity-60">
+    <div className="fixed inset-0 pointer-events-none z-0 opacity-30">
       <Canvas camera={{ position: [0, 0, 15], fov: 45 }}>
         <fog attach="fog" args={['#020617', 10, 30]} />
         <DNAStrand />

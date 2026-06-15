@@ -11,41 +11,34 @@
     body {
         height: 100%;
         width: 100%;
-        overflow: hidden;
         margin: 0;
         padding: 0;
-        position: fixed;
     }
 
     body {
-        @apply font-sans text-zinc-200 antialiased;
-        background:
-            radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.05), transparent 40%),
-            radial-gradient(circle at 0% 100%, rgba(245, 158, 11, 0.03), transparent 40%),
-            #020617;
-        background-attachment: fixed;
+        @apply font-sans text-zinc-900 antialiased;
+        background-color: #fafafa;
     }
 
     #root {
-        @apply h-full w-full flex flex-col;
-        height: 100dvh;
+        @apply w-full flex flex-col;
     }
 }
 
 @layer components {
     .glass-panel {
-        @apply bg-zinc-900/60 backdrop-blur-[40px] border border-white/10;
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        @apply bg-white/80 backdrop-blur-[60px] border border-zinc-200/50;
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
     }
 
     .glass-card {
-        @apply bg-zinc-800/40 backdrop-blur-[20px] border border-white/5 transition-all;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        @apply bg-white/60 backdrop-blur-[30px] border border-zinc-200/50 transition-all;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
     }
 
     .glass-card:hover {
-        @apply bg-zinc-700/50 border-white/20;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        @apply bg-white/90 border-zinc-300;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
     }
 }
 

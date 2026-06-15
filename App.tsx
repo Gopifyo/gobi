@@ -1,255 +1,162 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import BackgroundAnimation from './components/BackgroundAnimation';
-import Launcher from './components/Launcher';
-import OSInterface from './components/OSInterface';
-import { MessageType } from './types/app';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { AboutSection, ProjectsSection, ExperienceSection, SkillsSection, EducationSection, PublicationsSection, MediaSection, GallerySection, PatentsSection, ContactSection } from './components/ContentRenderer';
 
 const App: React.FC = () => {
-  // Desktop / Launcher State
-  const [launchState, setLaunchState] = useState<'desktop' | 'launching' | 'running'>('desktop');
-  const [selectedPersona, setSelectedPersona] = useState<string | null>(null);
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const [activeSection, setActiveSection] = useState('home');
 
-  // Chat App State
-  const [messages, setMessages] = useState<MessageType[]>([]);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isTyping, setIsTyping] = useState(false);
+  const sections = [
+    { id: 'home', label: 'Home' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'patents', label: 'Patents' },
+    { id: 'education', label: 'Education' },
+    { id: 'contact', label: 'Contact' }
+  ];
 
-  // Clock for Desktop
+  // Scroll spy logic
   useEffect(() => {
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
+    const handleScroll = () => {
+      const sectionElements = sections.map(s => document.getElementById(s.id));
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
 
-  // Initialize Welcome Message with Persona Context
-  useEffect(() => {
-    if (launchState === 'running') {
-      let personaGreeting = "Welcome. I'm Gobinath, a Bioengineer and Founder. How can I help you today?";
-      if (selectedPersona === 'investor') {
-        personaGreeting = "Welcome. Here is my product roadmap and patent portfolio. What would you like to see?";
-      } else if (selectedPersona === 'researcher') {
-        personaGreeting = "Welcome. I've compiled my research on longevity, cardiovascular health, and tissue engineering here.";
-      } else if (selectedPersona === 'collaborator') {
-        personaGreeting = "Great to meet you. I'm always looking for high-impact collaborations.";
-      } else if (selectedPersona === 'curious') {
-        personaGreeting = "Hello! Feel free to explore my work in AI and Bio-engineering.";
-      }
-
-      const initialMessages: MessageType[] = [
-        {
-          role: 'model',
-          text: personaGreeting,
-          isStreaming: false
-        },
-        {
-          role: 'model',
-          text: "Accessing primary identity module...",
-          component: 'About',
-          isStreaming: false
+      for (let i = sectionElements.length - 1; i >= 0; i--) {
+        const el = sectionElements[i];
+        if (el && el.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i].id);
+          break;
         }
-      ];
-      setMessages(initialMessages);
-    }
-  }, [launchState, selectedPersona]);
-
-  // Auto-scroll logic
-  useEffect(() => {
-    if (launchState === 'running') {
-      scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [messages, isTyping, launchState]);
-
-  const handleLaunch = (persona: string = 'curious') => {
-    setSelectedPersona(persona);
-    setLaunchState('launching');
-
-    // Impactful haptic-style delay
-    setTimeout(() => {
-      setLaunchState('running');
-    }, 2000);
-  };
-
-  const handleUserMessage = async (text: string) => {
-    setMessages(prev => [...prev, { role: 'user', text }]);
-    setIsTyping(true);
-
-    // Simulated Intelligent Local Response
-    setTimeout(() => {
-      let component: string | undefined;
-      let responseText = "I've analyzed your request. Accessing the relevant vault module...";
-      const lower = text.toLowerCase();
-
-      if (lower.includes('project')) {
-        component = 'Projects';
-        responseText = "Retrieving the product and project matrix from Gobinath's archives.";
-      } else if (lower.includes('patent')) {
-        component = 'Patents';
-        responseText = "Decrypting Intellectual Property records. Accessing patent data.";
-      } else if (lower.includes('experience') || lower.includes('work')) {
-        component = 'Experience';
-        responseText = "Syncing professional timeline and career highlights.";
-      } else if (lower.includes('skill') || lower.includes('stack')) {
-        component = 'Skills';
-        responseText = "Mapping the technical arsenal and core capabilities.";
-      } else if (lower.includes('research') || lower.includes('publication')) {
-        component = 'Publications';
-        responseText = "Accessing scientific publications and research datasets.";
-      } else if (lower.includes('media') || lower.includes('press')) {
-        component = 'Media';
-        responseText = "Loading global frequency logs and media footprint.";
-      } else if (lower.includes('contact') || lower.includes('hire')) {
-        component = 'Contact';
-        responseText = "Establishing communication link. Channels are open.";
-      } else if (lower.includes('about') || lower.includes('who')) {
-        component = 'About';
-        responseText = "Running primary identity synchronization. Here is the overview.";
-      } else if (lower.includes('edu')) {
-        component = 'Education';
-        responseText = "Accessing academic core modules and educational background.";
-      } else if (lower.includes('photo') || lower.includes('gallery') || lower.includes('visual')) {
-        component = 'Gallery';
-        responseText = "Opening visual archives and lab documentation.";
-      } else if (lower.includes('learning') || lower.includes('database') || lower.includes('mysql')) {
-        component = 'Learning';
-        responseText = "Syncing recent knowledge acquisition logs for Database and MySQL optimization.";
-      } else if (lower.includes('tool') || lower.includes('claude') || lower.includes('cursor')) {
-        component = 'Tools';
-        responseText = "Inventory check complete. Displaying favorite technical tools and development stack.";
-      } else {
-        responseText = "Command recognized. I am currently operating in direct-vault mode. You can ask about his projects, experience, patents, or tools.";
       }
-
-      setMessages(prev => [...prev, {
-        role: 'model',
-        text: responseText,
-        component
-      }]);
-      setIsTyping(false);
-    }, 800);
-  };
-
-  const handleNavigate = (section: string) => {
-    setSidebarOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    const messagesConfig = {
-      'About': { prompt: "Who is Gobinath?", text: "Here is a bit about who I am.", component: 'About' },
-      'Projects': { prompt: "Show me the projects.", text: "Here are the projects I've been working on.", component: 'Projects' },
-      'Patents': { prompt: "Show me patents.", text: "Here is my portfolio of intellectual property.", component: 'Patents' },
-      'Experience': { prompt: "Show me experience.", text: "Here is my professional timeline.", component: 'Experience' },
-      'Skills': { prompt: "List technical skills.", text: "These are the tools and technologies I use.", component: 'Skills' },
-      'Education': { prompt: "Show education.", text: "Here is my academic background.", component: 'Education' },
-      'Publications': { prompt: "Show publications.", text: "Here are my research publications.", component: 'Publications' },
-      'Media': { prompt: "Show media coverage.", text: "Here are some press features and articles.", component: 'Media' },
-      'Gallery': { prompt: "Show the gallery.", text: "Welcome to my personal gallery.", component: 'Gallery' },
-      'Contact': { prompt: "How to contact?", text: "Here is the best way to reach me.", component: 'Contact' },
-      'Learning': { prompt: "What have you been learning lately?", text: "Accessing knowledge synchronization log.", component: 'Learning' },
-      'Tools': { prompt: "What tools do you use?", text: "Displaying favorite tools and development stack.", component: 'Tools' },
     };
 
-    const target = messagesConfig[section as keyof typeof messagesConfig];
-    if (!target) return;
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    setMessages(prev => [...prev, { role: 'user', text: target.prompt }]);
-    setIsTyping(true);
-
-    setTimeout(() => {
-      setMessages(prev => [...prev, {
-        role: 'model',
-        text: target.text,
-        component: target.component,
-        isStreaming: false
-      }]);
-      setIsTyping(false);
-    }, 600);
-  };
-
-  const handleReset = () => {
-    setMessages([
-      { role: 'model', text: "Session reset. Hello again.", isStreaming: false },
-      { role: 'model', text: "Ready for new command.", component: 'About', isStreaming: false }
-    ]);
-    setSidebarOpen(false);
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      window.scrollTo({
+        top: el.offsetTop - 100,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
-    <div className="flex h-screen h-[100dvh] w-full font-sans overflow-hidden text-zinc-100 selection:bg-cyan-500/30">
-      <BackgroundAnimation />
-
-      <AnimatePresence mode="wait">
-        {launchState === 'launching' && (
-          <motion.div
-            key="syncing"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/80 backdrop-blur-3xl"
-          >
-            <div className="relative">
-              <div className="w-32 h-32 border-2 border-cyan-500/20 rounded-full animate-ping"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4">
-                <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse shadow-[0_0_15px_#fbbf24]"></div>
-                <div className="text-[10px] font-mono tracking-[1em] text-zinc-400 uppercase animate-pulse">
-                  Linking Pulse...
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-12 space-y-2 text-center overflow-hidden h-6 text-[8px] font-mono text-cyan-500/40 uppercase">
-              <motion.div
-                animate={{ y: [0, -100] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+    <div className="min-h-screen bg-[#fafafa] text-zinc-900 font-sans selection:bg-zinc-200/50 pb-32">
+      
+      {/* Unique Floating Navigation Pill */}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+        <div className="glass-panel rounded-full p-2 flex items-center gap-1 md:gap-2 shadow-2xl border border-zinc-200/50 bg-white/80 backdrop-blur-xl">
+          {sections.map((section) => {
+            const isActive = activeSection === section.id;
+            return (
+              <button
+                key={section.id}
+                onClick={() => scrollTo(section.id)}
+                className={`
+                  relative px-4 py-2.5 rounded-full text-xs md:text-sm font-mono tracking-widest uppercase transition-all duration-500 overflow-hidden group
+                  ${isActive ? 'text-white' : 'text-zinc-400 hover:text-zinc-900 hover:bg-zinc-100'}
+                `}
               >
-                {[...Array(10)].map((_, i) => (
-                  <div key={i}>ID: {Math.random().toString(36).substring(7)} // SYNCING_NODE_{i}</div>
-                ))}
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
+                {isActive && (
+                  <motion.div
+                    layoutId="active-pill"
+                    className="absolute inset-0 bg-zinc-900 rounded-full"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  <span className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${isActive ? 'bg-white shadow-[0_0_8px_white]' : 'bg-zinc-300 group-hover:bg-zinc-400'}`} />
+                  <span className={`transition-all duration-300 ${isActive ? 'w-auto opacity-100 ml-1' : 'w-0 opacity-0 md:w-auto md:opacity-100 md:ml-1 hidden md:block'}`}>
+                    {section.label}
+                  </span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
-        {launchState === 'desktop' ? (
-          <motion.div
-            key="launcher"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.1, filter: 'blur(30px)' }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="h-full w-full"
-          >
-            <Launcher
-              launchState={launchState}
-              selectedPersona={selectedPersona}
-              setSelectedPersona={setSelectedPersona}
-              handleLaunch={handleLaunch}
-              currentTime={currentTime}
-            />
-          </motion.div>
-        ) : launchState === 'running' && (
-          <motion.div
-            key="os-interface"
-            initial={{ opacity: 0, scale: 1.05, filter: 'blur(40px)' }}
-            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="h-full w-full"
-          >
-            <OSInterface
-              sidebarOpen={sidebarOpen}
-              setSidebarOpen={setSidebarOpen}
-              handleNavigate={handleNavigate}
-              handleReset={handleReset}
-              messages={messages}
-              isTyping={isTyping}
-              handleUserMessage={handleUserMessage}
-              scrollRef={scrollRef}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Content Stack */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 space-y-32 md:space-y-48 pt-20 md:pt-40 overflow-hidden w-full">
+        
+        {/* Section: Home / Identity */}
+        <section id="home" className="min-h-[100vh] flex items-center justify-center">
+          <div className="w-full">
+            <AboutSection />
+          </div>
+        </section>
+
+        {/* Section: Experience */}
+        <section id="experience" className="scroll-mt-32">
+          <SectionHeader title="Professional Timeline" subtitle="Where I have worked." />
+          <ExperienceSection />
+        </section>
+
+        {/* Section: Projects & Portfolio */}
+        <section id="projects" className="scroll-mt-32">
+          <SectionHeader title="The Vault" subtitle="Projects & Open Source" />
+          <ProjectsSection />
+        </section>
+
+        {/* Section: Skills */}
+        <section id="skills" className="scroll-mt-32">
+          <SectionHeader title="Technical Arsenal" subtitle="Core capabilities." />
+          <SkillsSection />
+        </section>
+
+        {/* Section: Patents */}
+        <section id="patents" className="scroll-mt-32">
+          <SectionHeader title="Intellectual Property" subtitle="Patents filed." />
+          <PatentsSection />
+        </section>
+
+        {/* Section: Education & Academics */}
+        <section id="education" className="scroll-mt-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            <div>
+               <SectionHeader title="Education" subtitle="Academic background." />
+               <EducationSection />
+            </div>
+            <div>
+               <SectionHeader title="Publications" subtitle="Academic research footprint." />
+               <PublicationsSection />
+            </div>
+          </div>
+          
+          <div className="mt-32 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            <div>
+               <SectionHeader title="Media" subtitle="Press and features." />
+               <MediaSection />
+            </div>
+            <div>
+               <SectionHeader title="Visual Archive" subtitle="Lab and project documentation." />
+               <GallerySection />
+            </div>
+          </div>
+        </section>
+
+        {/* Section: Contact */}
+        <section id="contact" className="scroll-mt-32 pt-20 border-t border-zinc-200">
+          <ContactSection />
+        </section>
+
+      </main>
     </div>
   );
 };
+
+const SectionHeader = ({ title, subtitle }: { title: string, subtitle: string }) => (
+  <div className="mb-16">
+    <div className="flex items-center gap-6 mb-4">
+      <div className="w-12 h-[1px] bg-zinc-300"></div>
+      <h2 className="text-sm font-mono tracking-[0.3em] uppercase text-zinc-500">{subtitle}</h2>
+    </div>
+    <h3 className="text-4xl md:text-5xl font-black tracking-tight text-zinc-900">{title}</h3>
+  </div>
+);
 
 export default App;

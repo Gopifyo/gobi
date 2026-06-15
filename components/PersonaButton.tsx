@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface PersonaButtonProps {
     icon: React.ReactNode;
@@ -8,8 +9,9 @@ interface PersonaButtonProps {
 }
 
 const PersonaButton: React.FC<PersonaButtonProps> = ({ icon, label, onClick, selected }) => (
-    <button
+    <motion.button
         onClick={onClick}
+        whileTap={{ scale: 0.95 }}
         className={`
       group flex flex-col items-center gap-3 md:gap-4 px-4 md:px-6 py-4 md:py-6 rounded-2xl md:rounded-3xl transition-all duration-500 border relative overflow-hidden
       ${selected
@@ -41,7 +43,7 @@ const PersonaButton: React.FC<PersonaButtonProps> = ({ icon, label, onClick, sel
     `}>
             {label}
         </span>
-    </button>
+    </motion.button>
 );
 
 export default PersonaButton;
