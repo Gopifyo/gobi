@@ -20,46 +20,39 @@ export const SOCIAL_LINKS = {
 
 export const PROJECTS: Project[] = [
   {
-    title: "Antigravity Nightlife OS",
-    description: "A futuristic operating system for nightlife, integrating social dynamics, real-time venue vibes, and seamless interactions.",
-    tags: ["Nightlife Tech", "Real-time", "Social OS"],
+    title: "Browser-Based Form Automation Agent",
+    description: "Built an AI agent that autonomously navigates web pages, fills forms, and completes multi-step workflows using Gemini vision integration. Integrated browser-use library with LangChain and Google Generative AI, troubleshooting cross-library compatibility issues between Pydantic versions.",
+    tags: ["Python", "FastAPI", "Gemini API", "Browser-Use", "Playwright"],
     type: "AI",
-    link: "https://antigravity-ten-beta.vercel.app/"
+    link: "#"
   },
   {
-    title: "CLOS-social gathering",
-    description: "A next-gen social gathering platform focused on bringing people together through curated events and intelligent matching.",
-    tags: ["Social", "Events", "Community"],
-    type: "Mobile",
-    link: "https://clos-beta.vercel.app/"
+    title: "Voice-Driven Biological Data Analysis Agent",
+    description: "Developed a local voice agent powered by Ollama and Qwen LLM that interfaces with R Studio for hands-free biological quantitative data analysis, enabling researchers to run statistical workflows via natural language commands.",
+    tags: ["Python", "Ollama", "Qwen LLM", "R Studio", "Voice Interface"],
+    type: "AI",
+    link: "#"
   },
   {
-    title: "3D Bioprinting of Cardiac & Muscle Tissue",
-    description: "Research project focusing on the bio-fabrication of complex cardiac and muscle tissues using advanced 3D bioprinting techniques.",
-    tags: ["Bioprinting", "Tissue Engineering", "Regenerative Medicine"],
-    type: "Research", // Changed type to separate from AI/Mobile
-    link: "https://github.com/gobinath-c/bioprinting" // Placeholder link
-  },
-  {
-    title: "Research Projects",
-    description: "Various research initiatives including diabetic cardiac modeling and seaweed-derived scaffolds.",
-    tags: ["Research", "Bioengineering", "Publications"],
+    title: "Breast Cancer Biomarker Discovery",
+    description: "Cleaned, wrangled, and analyzed a public GEO breast cancer gene expression dataset using dplyr/tidyr; applied limma differential expression analysis to identify candidate biomarkers. Produced volcano plots, heatmaps, and box plots in ggplot2 to visualize tumor vs. normal expression patterns; documented the full workflow in R Markdown for reproducible reporting.",
+    tags: ["R", "ggplot2", "dplyr", "tidyr", "limma", "GEODataset"],
     type: "Research",
     link: "#"
   },
   {
-    title: "R Voice AI Agent",
-    description: "This agent allows you to control RStudio using your voice. It leverages local LLMs via Ollama (Qwen 2.5 Coder, Llama 3.2, Mistral) and optionally integrates with the Gemini API for enhanced code generation.",
-    tags: ["RStudio", "Voice Control", "Qwen 2.5", "Llama 3.2", "Mistral", "Gemini API"],
-    type: "AI",
-    imageUrl: "gallery/r-voice-agent.png",
-    link: "#",
-    files: [
-      { name: "gui_app.py", description: "The Graphical User Interface (Speech + Text)." },
-      { name: "app.py", description: "(Optional) The original terminal-only version." },
-      { name: "r_listener.R", description: "The R-side listener script." },
-      { name: "bridge.R", description: "Temporary file used to pass commands." }
-    ]
+    title: "Antigravity Nightlife OS",
+    description: "A futuristic operating system for nightlife, integrating social dynamics, real-time venue vibes, and seamless interactions.",
+    tags: ["Nightlife Tech", "Real-time", "Social OS"],
+    type: "Web App",
+    link: "https://antigravity-ten-beta.vercel.app/"
+  },
+  {
+    title: "CLOS Social Gathering",
+    description: "A next-gen social gathering platform focused on bringing people together through curated events and intelligent matching.",
+    tags: ["Social", "Events", "Community"],
+    type: "Mobile",
+    link: "https://clos-beta.vercel.app/"
   },
   {
     title: "3D MicroCT Cardiac Reconstruction",
