@@ -39,7 +39,7 @@ export interface Project {
     title: string;
     description: string;
     tags: string[];
-    type: 'AI' | 'Mobile' | 'BioTech' | 'Research';
+    type: 'AI' | 'Mobile' | 'BioTech' | 'Research' | 'Web App';
     imageUrl?: string;
     link?: string;
     files?: { name: string; description: string }[];
