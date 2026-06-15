@@ -119,13 +119,15 @@ export const PUBLICATIONS: Publication[] = [
 
 export const EXPERIENCES: Experience[] = [
   {
-    role: "Founder",
+    role: "Founder & Product Builder",
     company: "Antigravity",
     location: "Corvallis, OR",
     period: "Dec 2025 – Present",
     highlights: [
       "Building a nightlife social utility platform designed to remove friction in socialization.",
-      "Developing real-time venue vibe check and social matching algorithms."
+      "Developing real-time venue vibe check and social matching algorithms.",
+      "Independently designed, built, and launched a full-stack web application (Next.js, Supabase, Vercel) to solve social discovery friction in nightlife - from concept to live product in under 4 weeks.",
+      "Acquired 20 active users and secured 1 bar"
     ]
   },
   {
