@@ -12,6 +12,7 @@ const App: React.FC = () => {
     { id: 'skills', label: 'Skills' },
     { id: 'patents', label: 'Patents' },
     { id: 'education', label: 'Education' },
+    { id: 'publications', label: 'Publications' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -128,7 +129,7 @@ const App: React.FC = () => {
                <SectionHeader title="Education" subtitle="Academic background." />
                <EducationSection />
             </div>
-            <div>
+            <div id="publications" className="scroll-mt-32">
                <SectionHeader title="Publications" subtitle="Academic research footprint." />
                <PublicationsSection />
             </div>
