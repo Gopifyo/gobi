@@ -115,8 +115,21 @@ export const AboutSection = () => {
         </p>
       </div>
 
+      {/* Social Links */}
+      <div className="flex items-center justify-center gap-5 mt-10">
+        <a href={`mailto:${SOCIAL_LINKS.email}`} className="w-14 h-14 rounded-full bg-white border border-neutral-200 flex items-center justify-center text-neutral-600 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 group">
+          <Mail size={22} className="group-hover:scale-110 transition-transform" />
+        </a>
+        <a href={`https://${SOCIAL_LINKS.linkedin}`} target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-white border border-neutral-200 flex items-center justify-center text-neutral-600 hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 group">
+          <Linkedin size={22} className="group-hover:scale-110 transition-transform" />
+        </a>
+        <a href={`https://${SOCIAL_LINKS.github}`} target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-white border border-neutral-200 flex items-center justify-center text-neutral-600 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 group">
+          <Github size={22} className="group-hover:scale-110 transition-transform" />
+        </a>
+      </div>
+
       {/* Action Badges */}
-      <div className="flex flex-wrap justify-center items-center gap-4 mt-16">
+      <div className="flex flex-wrap justify-center items-center gap-4 mt-10">
         <StatusBadge color="bg-neutral-900" text="Tissue Engineering" />
         <StatusBadge color="bg-neutral-900" text="AI Orchestration" />
         <StatusBadge color="bg-neutral-900" text="Bioinformatics" />
