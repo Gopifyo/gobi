@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { PROJECTS, EXPERIENCES, SKILLS, PUBLICATIONS, EDUCATION, MEDIA, SOCIAL_LINKS, PROFILE_IMAGE, GALLERY, PATENTS } from '../constants';
 import { ExternalLink, Github, Linkedin, MapPin, FileText, ArrowUpRight, Newspaper, X, Eye, BookOpen, ChevronLeft, ChevronRight as ChevronRightIcon, Download, ZoomIn, ZoomOut, User, Maximize2, ImageOff, Bot, Mail, ShieldCheck, Sparkles, Cpu, Camera, Database, Zap, Code2, Layout, Box } from 'lucide-react';
 import { MediaItem, GalleryItem } from '../types/app';
-import { DigitalCard } from './DigitalCard';
 
 // Premium Bio-Digital Core Replacement for Bot Icon
 // Premium Bio-Digital Core Replacement for Bot Icon
@@ -505,9 +504,6 @@ export const ContactSection = () => (
       </a>
     </div>
 
-    <div className="mt-16 pt-16 border-t border-neutral-200/50">
-      <h4 className="text-xl font-bold text-neutral-500 mb-8 uppercase tracking-widest">Digital Identity Token</h4>
-      <DigitalCard />
-    </div>
+
   </div>
 );
