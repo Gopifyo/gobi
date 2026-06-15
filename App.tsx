@@ -45,7 +45,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-50 text-neutral-900 font-sans selection:bg-neutral-200/50 pb-32 relative">
+    <div className="min-h-screen bg-neutral-50 text-neutral-900 font-sans selection:bg-neutral-200/50 pb-32 relative overflow-x-hidden w-full">
       
       {/* Ambient Animated Background */}
       <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -55,8 +55,8 @@ const App: React.FC = () => {
       </div>
       
       {/* Unique Floating Navigation Pill */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
-        <div className="glass-panel rounded-full p-2 flex items-center gap-1 md:gap-2 shadow-2xl border border-neutral-200/50 bg-white/80 backdrop-blur-xl">
+      <div className="fixed bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-50 w-[95vw] md:w-auto max-w-max">
+        <div className="glass-panel rounded-full p-2 flex items-center justify-start md:justify-center gap-1 md:gap-2 shadow-2xl border border-neutral-200/50 bg-white/80 backdrop-blur-xl overflow-x-auto no-scrollbar w-full">
           {sections.map((section) => {
             const isActive = activeSection === section.id;
             return (

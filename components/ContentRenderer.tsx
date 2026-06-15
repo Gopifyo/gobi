@@ -103,14 +103,14 @@ export const AboutSection = () => {
       </div>
 
       {/* Massive Typography */}
-      <div className="text-center space-y-6 max-w-4xl">
-        <h1 className="text-5xl md:text-7xl lg:text-[6rem] font-black tracking-tighter text-neutral-900 leading-[0.85] uppercase selection:bg-neutral-200">
+      <div className="text-center space-y-6 max-w-4xl w-full px-4">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] font-black tracking-tighter text-neutral-900 leading-[0.9] md:leading-[0.85] uppercase selection:bg-neutral-200 break-words">
           Bioengineer.<br />
           Builder.<br />
           <span className="text-neutral-400">Founder.</span>
         </h1>
         
-        <p className="text-lg md:text-2xl text-neutral-500 font-light leading-relaxed max-w-2xl mx-auto pt-8">
+        <p className="text-base sm:text-lg md:text-2xl text-neutral-500 font-light leading-relaxed max-w-2xl mx-auto pt-4 md:pt-8">
           Operating at the intersection of <strong className="font-semibold text-neutral-900">human health research</strong>, <strong className="font-semibold text-neutral-900">consumer products</strong>, and <strong className="font-semibold text-neutral-900">agentic AI workflows</strong>.
         </p>
       </div>
@@ -507,8 +507,8 @@ export const ContactSection = () => (
         </div>
         
         <div>
-          <h3 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none mb-6">Let's build<br />something.</h3>
-          <p className="text-neutral-400 text-lg md:text-xl font-light max-w-md">Currently exploring high-impact collaborations, product ventures, and deep-tech research.</p>
+          <h3 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter leading-[1.1] md:leading-none mb-4 md:mb-6 break-words">Let's build<br />something.</h3>
+          <p className="text-neutral-400 text-base md:text-xl font-light max-w-md">Currently exploring high-impact collaborations, product ventures, and deep-tech research.</p>
         </div>
       </div>
 
